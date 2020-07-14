@@ -1,9 +1,9 @@
 package com.sherwin.sourdough.http
 
-import com.sherwin.sourdough.App
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
+import com.sherwin.sourdough.context.BaseApplication
 import okhttp3.OkHttpClient
 import retrofit2.Converter
 
@@ -31,6 +31,6 @@ open class MySimpleRetrofitProxy(baseUrl: String
 //                    .build()
 //            )
 //        }
-        builder.cookieJar(PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(App.instance.applicationContext)))
+        builder.cookieJar(PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(BaseApplication.instance.applicationContext)))
     }
 }
