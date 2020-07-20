@@ -17,7 +17,7 @@ import io.reactivex.subjects.BehaviorSubject
  * @author SherwinOne
  * @date 2020/6/23
  */
-open class BaseActivity : AppCompatActivity(), LifecycleProvider<ActivityEvent> {
+open class BaseLifecycleActivity : AppCompatActivity(), LifecycleProvider<ActivityEvent> {
     val progressDialog : ProgressDialog by lazy { ProgressDialog(this) }
     private val lifecycleSubject = BehaviorSubject.create<ActivityEvent>()
 
