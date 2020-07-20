@@ -18,6 +18,7 @@ abstract class BaseApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        initialize()
     }
 
     abstract fun handleHttpError(e: Throwable)
