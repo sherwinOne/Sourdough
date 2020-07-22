@@ -3,8 +3,11 @@ package com.sherwin.sourdough.base
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import io.reactivex.disposables.Disposable
 
 open class BaseMvpPresenter<V : BaseMvpView?> : Presenter<V> {
+    //回收列表
+    val disposableList by lazy { arrayListOf<Disposable?>() }
     /**
      * 返回目标view
      * @return
@@ -18,6 +21,12 @@ open class BaseMvpPresenter<V : BaseMvpView?> : Presenter<V> {
 
     override fun detachView() {
         mvpView = null
+        disposableList.forEach { it?.dispose() }
+    }
+
+    /** 添加到observable回收列表中*/
+    fun dispose(disposable: Disposable){
+        disposableList.add(disposable)
     }
 
     /**
