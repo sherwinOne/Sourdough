@@ -8,7 +8,7 @@ interface BaseMvpView {
      * 显示等待框
      * msg: 加载提示文本
      */
-    fun showLoading(msg: String?)
+    fun showLoading(msg: String = "")
 
     //隐藏等待框
     fun hideLoading()
