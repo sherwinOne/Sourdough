@@ -35,6 +35,7 @@ open class BaseMvpPresenter<V : BaseMvpView?> : Presenter<V> {
     fun bindToLifecycle(view : V,lifecycle: Lifecycle){
         attachView(view)
         lifecycle.addObserver(object : LifecycleObserver{
+
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             fun onDestroy(){
                 detachView()
