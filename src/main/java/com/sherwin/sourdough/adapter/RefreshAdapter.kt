@@ -57,7 +57,7 @@ abstract class RefreshAdapter<D> (list: ArrayList<D>?): RecyclerView.Adapter<Rec
     /**
      * 刷新列表
      */
-    fun refreshList(list: ArrayList<D>?){
+    open fun refreshList(list: ArrayList<D>?){
         if (list != this.list){
             this.list?.clear()
             this.list?.addAll(list!!)
