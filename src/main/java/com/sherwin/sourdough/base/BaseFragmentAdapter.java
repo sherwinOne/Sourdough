@@ -37,6 +37,10 @@ public class BaseFragmentAdapter<F extends Fragment> extends FragmentPagerAdapte
         super(manager);
     }
 
+    public BaseFragmentAdapter(FragmentManager manager,int behavior){
+        super(manager,behavior);
+    }
+
     @NonNull
     @Override
     public F getItem(int position) {
